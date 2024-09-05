@@ -81,7 +81,7 @@ function Home() {
             <button
               key={button}
               className={`${
-                button === "C" || button === "DEL" || button === "="
+                button === "C" || button === "DEL" 
                   ? "bg-red-500 hover:bg-red-600"
                   : button === "="
                   ? "bg-blue-500 hover:bg-blue-600"
