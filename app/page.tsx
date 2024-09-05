@@ -1,8 +1,10 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
-import Link from "next/link";
+// import Link from "next/link";
 
 function Home() {
+  const router = useRouter()
   const tasks = [
     { name: "Membuat Calculator", path: "/calculator" },
   ];
@@ -15,11 +17,9 @@ function Home() {
           {tasks.map((task, index) => (
             <li key={index} className="flex items-center justify-between p-4 bg-green-100 rounded-lg shadow hover:bg-green-200">
               <span className="text-lg font-semibold text-green-800">{task.name}</span>
-              <Link href={task.path}>
-                <button className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300 ease-in-out">
+                <button onClick={() => router.push(task.path)} className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300 ease-in-out">
                   Pergi ke Tugas
                 </button>
-              </Link>
             </li>
           ))}
         </ul>
