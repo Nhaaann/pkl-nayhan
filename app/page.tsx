@@ -12,7 +12,7 @@ function Home() {
     } else if (value === "=") {
       try {
         const modifiedInput = input
-          .replace(/\^/g, "**") 
+          .replace(/\^/g, "**") // Mengganti ^ dengan **
           .replace(/X/g, "*");
         const result = eval(modifiedInput);
         setInput(result.toString());
@@ -41,25 +41,12 @@ function Home() {
   };
 
   const buttons = [
-    "7",
-    "8",
-    "9",
-    "+",
-    "4",
-    "5",
-    "6",
-    "-",
-    "1",
-    "2",
-    "3",
-    "X",
-    "C",
-    "0",
-    "=",
-    "/",
-    "DEL",
-    "%",
-    "^",
+    "7", "8", "9", "+",
+    "4", "5", "6", "-",
+    "1", "2", "3", "X",
+    "(", "0", ")", "/",
+    "C", "DEL", "=", "%",
+    "^"
   ];
 
   return (
@@ -69,13 +56,11 @@ function Home() {
         <div className="mb-4 text-right text-2xl font-bold p-2 bg-gray-100 rounded">
           {input || "0"}
         </div>
-        {shadowResult ? (
+        {shadowResult && (
           <p className="my-2 text-right text-gray-500 italic mr-2">hasil: {shadowResult}</p>
-        ) : (
-          <p className="my-2 text-right text-gray-500 italic mr-2">hasil: 0</p>
         )}
         <div className="grid grid-cols-4 gap-2">
-          {buttons.map((button) => (
+          {buttons.slice(0, 12).map((button) => (
             <button
               key={button}
               className={`${
@@ -91,8 +76,24 @@ function Home() {
             </button>
           ))}
         </div>
+        <div className="grid grid-cols-4 gap-2 mt-2">
+          {buttons.slice(12).map((button) => (
+            <button
+              key={button}
+              className={`${
+                button === "C" || button === "DEL" || button === "="
+                  ? "bg-red-500 hover:bg-red-600"
+                  : button === "="
+                  ? "bg-blue-500 hover:bg-blue-600"
+                  : "bg-green-500 hover:bg-green-600"
+              } text-white font-bold py-4 px-4 rounded`}
+              onClick={() => handleInput(button)}
+            >
+              {button}
+            </button>
+          ))}
+        </div>
         <p className="mt-2 text-right">By nehan</p>
-
       </div>
     </div>
   );
