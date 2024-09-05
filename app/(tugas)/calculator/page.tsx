@@ -23,7 +23,6 @@ function Calculator() {
       setInput(input.slice(0, -1));
       setShadowResult("");
     } else if (value === ",") {
-      // Cek apakah koma sudah ada di angka terakhir
       const lastAngka = input.split(/[\+\-\*\/\(\)X]/).pop();
       if (lastAngka && !lastAngka.includes(".")) {
         setInput(input + ".");
