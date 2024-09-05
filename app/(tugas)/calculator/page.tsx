@@ -33,7 +33,9 @@ function Calculator() {
       setInput(newInput);
 
       try {
-        const inputMOdifikasi = newInput.replace(/\^/g, "**").replace(/X/g, "*");
+        const inputMOdifikasi = newInput
+          .replace(/\^/g, "**")
+          .replace(/X/g, "*");
         const result = eval(inputMOdifikasi);
         setShadowResult(result.toString());
       } catch {
@@ -74,11 +76,9 @@ function Calculator() {
         <div className="mb-4 text-right text-2xl font-bold p-2 bg-gray-100 rounded">
           {input || "0"}
         </div>
-        {shadowResult && (
-          <p className="my-2 text-right text-gray-500 italic mr-2">
-            hasil: {shadowResult}
-          </p>
-        )}
+        <p className="my-2 text-right text-gray-500 italic mr-2">
+          hasil: {shadowResult? shadowResult : shadowResult.slice(0, -1)}
+        </p>
         <div className="grid grid-cols-4 gap-2">
           {buttons.slice(0, 12).map((button) => (
             <button
