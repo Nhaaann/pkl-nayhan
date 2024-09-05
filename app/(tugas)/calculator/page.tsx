@@ -76,7 +76,7 @@ function Calculator() {
           {input || "0"}
         </div>
         <p className="my-2 text-right text-gray-500 italic mr-2">
-          hasil: {shadowResult? shadowResult : shadowResult.slice(0, -1)}
+          hasil: {shadowResult? shadowResult : '...'}
         </p>
         <div className="grid grid-cols-4 gap-2">
           {buttons.slice(0, 12).map((button) => (
