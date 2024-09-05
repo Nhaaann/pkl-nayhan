@@ -5,7 +5,6 @@ function Home() {
   const [input, setInput] = useState<string>("");
   const [shadowResult, setShadowResult] = useState<string>("");
 
-  // Fungsi untuk menangani input pengguna
   const handleInput = (value: string) => {
     if (value === "C") {
       setInput("");
@@ -13,33 +12,30 @@ function Home() {
     } else if (value === "=") {
       try {
         const modifiedInput = input
-          .replace(/\^/g, "**") // Mengganti ^ dengan **
+          .replace(/\^/g, "**") 
           .replace(/X/g, "*");
-        const result = eval(modifiedInput); // Hitung ekspresi
+        const result = eval(modifiedInput);
         setInput(result.toString());
-        setShadowResult(result.toString()); // Menyimpan hasil perhitungan
+        setShadowResult(result.toString());
       } catch {
         setInput("Error");
-        setShadowResult(""); // Kosongkan hasil bayangan jika terjadi error
+        setShadowResult(""); 
       }
     } else if (value === "DEL") {
-      // Hapus karakter terakhir dari input
       setInput(input.slice(0, -1));
-      setShadowResult(""); // Kosongkan hasil bayangan jika ada perubahan
+      setShadowResult(""); 
     } else {
-      // Perbarui input dan hasil bayangan jika input adalah ekspresi yang valid
       const newInput = input + value;
       setInput(newInput);
 
       try {
-        // Coba evaluasi input baru untuk update hasil bayangan
         const modifiedInput = newInput
-          .replace(/\^/g, "**") // Mengganti ^ dengan **
+          .replace(/\^/g, "**")
           .replace(/X/g, "*");
         const result = eval(modifiedInput);
         setShadowResult(result.toString());
       } catch {
-        setShadowResult(""); // Kosongkan hasil bayangan jika evaluasi gagal
+        setShadowResult(""); 
       }
     }
   };
