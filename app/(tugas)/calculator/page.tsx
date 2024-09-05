@@ -73,7 +73,7 @@ function Calculator() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-green-50">
       <div className="bg-white p-6 rounded-lg shadow-md w-1/2 h-fit flex flex-col">
-        <button className="text-xl mb-3" onClick={() => router.back()}>{"<-- Back"}</button>
+        <button className="text-xl mb-3 text-left" onClick={() => router.back()}>{"<-- Back"}</button>
         <p className="text-3xl mb-3">Calculator</p>
         <div className="mb-4 text-right text-2xl font-bold p-2 bg-gray-100 rounded">
           {input || "0"}
