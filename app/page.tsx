@@ -9,7 +9,7 @@ function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-r from-green-200 via-green-100 to-green-200 p-8">
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
-        <h1 className="text-4xl font-bold text-green-700 mb-6 text-center">PKL Nehan</h1>
+        <h1 className="text-4xl font-bold text-green-700 mb-6 text-center">PKL Nayhan</h1>
         <p className="text-xl text-gray-700 mb-4 text-center">Daftar Tugas:</p>
         <ul className="space-y-4">
           {tasks.map((task, index) => (
@@ -24,7 +24,7 @@ function Home() {
           ))}
         </ul>
         <footer className="mt-6 text-center text-sm text-gray-500">
-          Dibuat oleh Nehan | PKL 2024
+          Dibuat oleh Nayhan | PKL 2024
         </footer>
       </div>
     </div>
