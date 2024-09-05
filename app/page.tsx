@@ -11,10 +11,8 @@ function Home() {
       setShadowResult("");
     } else if (value === "=") {
       try {
-        const modifiedInput = input
-          .replace(/\^/g, "**") 
-          .replace(/X/g, "*");
-        const result = eval(modifiedInput);
+        const inputMOdifikasi = input.replace(/\^/g, "**").replace(/X/g, "*");
+        const result = eval(inputMOdifikasi);
         setInput(result.toString());
         setShadowResult(result.toString());
       } catch {
@@ -24,13 +22,19 @@ function Home() {
     } else if (value === "DEL") {
       setInput(input.slice(0, -1));
       setShadowResult("");
+    } else if (value === ",") {
+      // Cek apakah koma sudah ada di angka terakhir
+      const lastAngka = input.split(/[\+\-\*\/\(\)X]/).pop();
+      if (lastAngka && !lastAngka.includes(".")) {
+        setInput(input + ".");
+      }
     } else {
       const newInput = input + value;
       setInput(newInput);
 
       try {
-        const modifiedInput = newInput.replace(/\^/g, "**").replace(/X/g, "*");
-        const result = eval(modifiedInput);
+        const inputMOdifikasi = newInput.replace(/\^/g, "**").replace(/X/g, "*");
+        const result = eval(inputMOdifikasi);
         setShadowResult(result.toString());
       } catch {
         setShadowResult("");
@@ -60,6 +64,7 @@ function Home() {
     "=",
     "%",
     "^",
+    ",",
   ];
 
   return (
@@ -107,7 +112,8 @@ function Home() {
                     button == "+" ||
                     button == "-" ||
                     button == "(" ||
-                    button == ")"
+                    button == ")" ||
+                    button == ","
                   ? "bg-yellow-500 hover:bg-yellow-600"
                   : "bg-green-500 hover:bg-green-600"
               } text-white font-bold py-4 px-4 rounded`}
