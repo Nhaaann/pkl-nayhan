@@ -100,7 +100,7 @@ function Home() {
                   ? "bg-red-500 hover:bg-red-600"
                   : button === "="
                   ? "bg-blue-500 hover:bg-blue-600"
-                  : button === "%" || button === "^" || button === "X" || button === "/" || button === "+" || button === "-"
+                  : button === "%" || button === "^" || button == "X" || button === "/" || button == "+" || button == "-" || button == "(" || button == ")"
                   ? "bg-yellow-500 hover:bg-yellow-600"
                   : "bg-green-500 hover:bg-green-600"
               } text-white font-bold py-4 px-4 rounded`}
