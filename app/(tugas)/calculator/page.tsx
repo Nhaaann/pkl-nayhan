@@ -123,7 +123,6 @@ function Calculator() {
             </button>
           ))}
         </div>
-        <p className="mt-2 text-right">By nehan</p>
       </div>
     </div>
   );
