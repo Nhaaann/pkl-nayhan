@@ -70,9 +70,9 @@ function Home() {
           {input || "0"}
         </div>
         {shadowResult ? (
-          <p className="my-2 text-right text-gray-500 italic mr-2">{shadowResult}</p>
+          <p className="my-2 text-right text-gray-500 italic mr-2">hasil: {shadowResult}</p>
         ) : (
-          <p className="my-2 text-right text-gray-500 italic mr-2">0</p>
+          <p className="my-2 text-right text-gray-500 italic mr-2">hasil: 0</p>
         )}
         <div className="grid grid-cols-4 gap-2">
           {buttons.map((button) => (
